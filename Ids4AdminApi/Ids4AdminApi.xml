@@ -1,0 +1,2322 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ids4AdminApi</name>
+    </assembly>
+    <members>
+        <member name="T:Ids4AdminApi.Controllers.ApiResourceController">
+            <summary>
+            API resource operation API。
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiResourceController.GetApiResource(System.Int32)">
+            <summary>
+            Get API resource entity from database.
+            </summary>
+            <param name="id">Unique ID of data row</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiResourceController.GetAllScopes">
+            <summary>
+            Get all available scopes from database.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiResourceController.#ctor(Microsoft.Extensions.Logging.ILogger{Ids4AdminApi.Controllers.ApiResourceController},IdentityServer4.EntityFramework.Interfaces.IConfigurationDbContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="logger"></param>
+            <param name="configurationDbContext"></param>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiResourceController.List(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.PagingListInput{Ids4AdminApi.Models.ApiResourceListInput}})">
+            <summary>
+            Return response object with API resource list that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiResourceController.View(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueIdInput})">
+            <summary>
+            Return response object with API resource that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiResourceController.Init(Ids4AdminApi.Models.Request)">
+            <summary>
+            Return response object with API resource that initialized。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiResourceController.Insert(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.InsertUpdateInput{Ids4AdminApi.Models.ApiResource}})">
+            <summary>
+            Return response object with API resource that inserted by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiResourceController.Update(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.InsertUpdateInput{Ids4AdminApi.Models.ApiResource}})">
+            <summary>
+            Return response object with API resource that updated by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiResourceController.Delete(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueIdInput})">
+            <summary>
+            Return response object with API resource that deleted by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="T:Ids4AdminApi.Controllers.ApiScopeController">
+            <summary>
+            API scope operation API。
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiScopeController.GetApiScope(System.Int32)">
+            <summary>
+            Get API scope entity from database.
+            </summary>
+            <param name="id">Unique ID of data row</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiScopeController.#ctor(Microsoft.Extensions.Logging.ILogger{Ids4AdminApi.Controllers.ApiScopeController},IdentityServer4.EntityFramework.Interfaces.IConfigurationDbContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="logger"></param>
+            <param name="configurationDbContext"></param>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiScopeController.List(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.PagingListInput{Ids4AdminApi.Models.ApiScopeListInput}})">
+            <summary>
+            Return response object with API scope list that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiScopeController.View(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueIdInput})">
+            <summary>
+            Return response object with API scope that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiScopeController.Init(Ids4AdminApi.Models.Request)">
+            <summary>
+            Return response object with API scope that initialized。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiScopeController.Insert(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.InsertUpdateInput{Ids4AdminApi.Models.ApiScope}})">
+            <summary>
+            Return response object with API scope that inserted by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiScopeController.Update(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.InsertUpdateInput{Ids4AdminApi.Models.ApiScope}})">
+            <summary>
+            Return response object with API scope that updated by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ApiScopeController.Delete(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueIdInput})">
+            <summary>
+            Return response object with API scope that deleted by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="T:Ids4AdminApi.Controllers.BaseController">
+            <summary>
+            API base controller.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.BaseController.AttachError(Ids4AdminApi.Models.ResponseHeader,Ids4AdminApi.Models.ResultCode,System.String)">
+            <summary>
+            Attach error to response header.
+            </summary>
+            <param name="responseHeader">Response header object</param>
+            <param name="resultCode">Result code</param>
+            <param name="message">Error message</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ids4AdminApi.Controllers.ClientController">
+            <summary>
+            Client operation API。
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ClientController.GetClient(System.Int32)">
+            <summary>
+            Get client entity from database.
+            </summary>
+            <param name="id">Unique ID of data row</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ClientController.GetAllScopes">
+            <summary>
+            Get all available scopes from database.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ClientController.#ctor(Microsoft.Extensions.Logging.ILogger{Ids4AdminApi.Controllers.ClientController},IdentityServer4.EntityFramework.Interfaces.IConfigurationDbContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="logger"></param>
+            <param name="configurationDbContext"></param>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ClientController.List(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.PagingListInput{Ids4AdminApi.Models.ClientListInput}})">
+            <summary>
+            Return response object with client list that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ClientController.View(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueIdInput})">
+            <summary>
+            Return response object with client that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ClientController.Init(Ids4AdminApi.Models.Request)">
+            <summary>
+            Return response object with client that initialized。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ClientController.Insert(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.InsertUpdateInput{Ids4AdminApi.Models.Client}})">
+            <summary>
+            Return response object with client that inserted by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ClientController.Update(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.InsertUpdateInput{Ids4AdminApi.Models.Client}})">
+            <summary>
+            Return response object with client that updated by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.ClientController.Delete(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueIdInput})">
+            <summary>
+            Return response object with client that deleted by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="T:Ids4AdminApi.Controllers.DeviceFlowCodeController">
+            <summary>
+            Device flow code operation API。
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.DeviceFlowCodeController.GetDeviceFlowCode(System.String)">
+            <summary>
+            Get device flow code entity from database.
+            </summary>
+            <param name="userCode">Unique key of data row</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.DeviceFlowCodeController.#ctor(Microsoft.Extensions.Logging.ILogger{Ids4AdminApi.Controllers.DeviceFlowCodeController},IdentityServer4.EntityFramework.Interfaces.IPersistedGrantDbContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="logger"></param>
+            <param name="persistedGrantDbContext"></param>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.DeviceFlowCodeController.List(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.PagingListInput{Ids4AdminApi.Models.DeviceFlowCodeListInput}})">
+            <summary>
+            Return response object with device flow code list that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.DeviceFlowCodeController.View(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueKeyInput})">
+            <summary>
+            Return response object with device flow code that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.DeviceFlowCodeController.Delete(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueKeyInput})">
+            <summary>
+            Return response object with device flow code that deleted by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="T:Ids4AdminApi.Controllers.IdentityResourceController">
+            <summary>
+            Identity resource operation API。
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.IdentityResourceController.GetIdentityResource(System.Int32)">
+            <summary>
+            Get Identity resource entity from database.
+            </summary>
+            <param name="id">Unique ID of data row</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.IdentityResourceController.#ctor(Microsoft.Extensions.Logging.ILogger{Ids4AdminApi.Controllers.IdentityResourceController},IdentityServer4.EntityFramework.Interfaces.IConfigurationDbContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="logger"></param>
+            <param name="configurationDbContext"></param>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.IdentityResourceController.List(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.PagingListInput{Ids4AdminApi.Models.IdentityResourceListInput}})">
+            <summary>
+            Return response object with Identity resource list that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.IdentityResourceController.View(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueIdInput})">
+            <summary>
+            Return response object with Identity resource that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.IdentityResourceController.Init(Ids4AdminApi.Models.Request)">
+            <summary>
+            Return response object with Identity resource that initialized。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.IdentityResourceController.Insert(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.InsertUpdateInput{Ids4AdminApi.Models.IdentityResource}})">
+            <summary>
+            Return response object with Identity resource that inserted by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.IdentityResourceController.Update(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.InsertUpdateInput{Ids4AdminApi.Models.IdentityResource}})">
+            <summary>
+            Return response object with Identity resource that updated by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.IdentityResourceController.Delete(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueIdInput})">
+            <summary>
+            Return response object with Identity resource that deleted by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="T:Ids4AdminApi.Controllers.PersistedGrantController">
+            <summary>
+            Persisted grant operation API。
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.PersistedGrantController.GetPersistedGrant(System.String)">
+            <summary>
+            Get persisted grant entity from database.
+            </summary>
+            <param name="key">Unique key of data row</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.PersistedGrantController.#ctor(Microsoft.Extensions.Logging.ILogger{Ids4AdminApi.Controllers.PersistedGrantController},IdentityServer4.EntityFramework.Interfaces.IPersistedGrantDbContext)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="logger"></param>
+            <param name="persistedGrantDbContext"></param>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.PersistedGrantController.List(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.PagingListInput{Ids4AdminApi.Models.PersistedGrantListInput}})">
+            <summary>
+            Return response object with persisted grant list that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.PersistedGrantController.View(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueKeyInput})">
+            <summary>
+            Return response object with persisted grant that filtered by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Controllers.PersistedGrantController.Delete(Ids4AdminApi.Models.Request{Ids4AdminApi.Models.UniqueKeyInput})">
+            <summary>
+            Return response object with persisted grant that deleted by using input parameter。
+            </summary>
+            <param name="request">The request parameter</param>
+            <returns>Return response object</returns>
+        </member>
+        <member name="T:Ids4AdminApi.Extensions.HashExtensions">
+            <summary>
+            Extension methods for hashing strings
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Extensions.HashExtensions.Sha256(System.String)">
+            <summary>
+            Creates a SHA256 hash of the specified input.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>A hash</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Extensions.HashExtensions.Sha256(System.Byte[])">
+            <summary>
+            Creates a SHA256 hash of the specified input.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>A hash.</returns>
+        </member>
+        <member name="M:Ids4AdminApi.Extensions.HashExtensions.Sha512(System.String)">
+            <summary>
+            Creates a SHA512 hash of the specified input.
+            </summary>
+            <param name="input">The input.</param>
+            <returns>A hash</returns>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.ApiResourceMapperProfile">
+            <summary>
+            Defines entity/model mapping for API resources.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ApiResourceMapperProfile.#ctor">
+            <summary>
+            <see cref="T:Ids4AdminApi.Mappers.ApiResourceMapperProfile"/>
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.ApiResourceMappers">
+            <summary>
+            Extension methods to map to/from entity/model for API resources.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ApiResourceMappers.ToModel(IdentityServer4.EntityFramework.Entities.ApiResource)">
+            <summary>
+            Maps an entity to a model.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ApiResourceMappers.ToModels(System.Collections.Generic.IEnumerable{IdentityServer4.EntityFramework.Entities.ApiResource})">
+            <summary>
+            Maps an entities to a models.
+            </summary>
+            <param name="entities">The entities.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ApiResourceMappers.ToEntity(Ids4AdminApi.Models.ApiResource)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ApiResourceMappers.UpdateEntity(Ids4AdminApi.Models.ApiResource,IdentityServer4.EntityFramework.Entities.ApiResource)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <param name="entity">The entity model.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.ApiScopeMapperProfile">
+            <summary>
+            Defines entity/model mapping for scopes.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ApiScopeMapperProfile.#ctor">
+            <summary>
+            <see cref="T:Ids4AdminApi.Mappers.ApiScopeMapperProfile"/>
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.ApiScopeMappers">
+            <summary>
+            Extension methods to map to/from entity/model for scopes.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ApiScopeMappers.ToModel(IdentityServer4.EntityFramework.Entities.ApiScope)">
+            <summary>
+            Maps an entity to a model.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ApiScopeMappers.ToModels(System.Collections.Generic.IEnumerable{IdentityServer4.EntityFramework.Entities.ApiScope})">
+            <summary>
+            Maps an entities to a models.
+            </summary>
+            <param name="entities">The entities.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ApiScopeMappers.ToEntity(Ids4AdminApi.Models.ApiScope)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ApiScopeMappers.UpdateEntity(Ids4AdminApi.Models.ApiScope,IdentityServer4.EntityFramework.Entities.ApiScope)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <param name="entity">The entity model.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.ClientMapperProfile">
+            <summary>
+            Defines entity/model mapping for clients.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ClientMapperProfile.#ctor">
+            <summary>
+            <see>
+                <cref>{ClientMapperProfile}</cref>
+            </see>
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.ClientMappers">
+            <summary>
+            Extension methods to map to/from entity/model for clients.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ClientMappers.ToModel(IdentityServer4.EntityFramework.Entities.Client)">
+            <summary>
+            Maps an entity to a model.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ClientMappers.ToModels(System.Collections.Generic.IEnumerable{IdentityServer4.EntityFramework.Entities.Client})">
+            <summary>
+            Maps an entities to a models.
+            </summary>
+            <param name="entities">The entities.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ClientMappers.ToEntity(Ids4AdminApi.Models.Client)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.ClientMappers.UpdateEntity(Ids4AdminApi.Models.Client,IdentityServer4.EntityFramework.Entities.Client)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <param name="entity">The entity model.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.DeviceFlowCodeMapperProfile">
+            <summary>
+            Defines entity/model mapping for device flow codes.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.DeviceFlowCodeMapperProfile.#ctor">
+            <summary>
+            <see>
+                <cref>{ClientMapperProfile}</cref>
+            </see>
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.DeviceFlowCodeMappers">
+            <summary>
+            Extension methods to map to/from entity/model for device flow codes.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.DeviceFlowCodeMappers.ToModel(IdentityServer4.EntityFramework.Entities.DeviceFlowCodes)">
+            <summary>
+            Maps an entity to a model.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.DeviceFlowCodeMappers.ToModels(System.Collections.Generic.IEnumerable{IdentityServer4.EntityFramework.Entities.DeviceFlowCodes})">
+            <summary>
+            Maps an entities to a models.
+            </summary>
+            <param name="entities">The entities.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.DeviceFlowCodeMappers.ToEntity(Ids4AdminApi.Models.DeviceFlowCode)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.DeviceFlowCodeMappers.ToEntity(Ids4AdminApi.Models.DeviceFlowCode,IdentityServer4.EntityFramework.Entities.DeviceFlowCodes)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <param name="entity">The entity model.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.IdentityResourceMapperProfile">
+            <summary>
+            Defines entity/model mapping for identity resources.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.IdentityResourceMapperProfile.#ctor">
+            <summary>
+            <see cref="T:Ids4AdminApi.Mappers.IdentityResourceMapperProfile"/>
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.IdentityResourceMappers">
+            <summary>
+            Extension methods to map to/from entity/model for identity resources.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.IdentityResourceMappers.ToModel(IdentityServer4.EntityFramework.Entities.IdentityResource)">
+            <summary>
+            Maps an entity to a model.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.IdentityResourceMappers.ToModels(System.Collections.Generic.IEnumerable{IdentityServer4.EntityFramework.Entities.IdentityResource})">
+            <summary>
+            Maps an entities to a models.
+            </summary>
+            <param name="entities">The entities.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.IdentityResourceMappers.ToEntity(Ids4AdminApi.Models.IdentityResource)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.IdentityResourceMappers.UpdateEntity(Ids4AdminApi.Models.IdentityResource,IdentityServer4.EntityFramework.Entities.IdentityResource)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <param name="entity">The entity model.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.PersistedGrantMapperProfile">
+            <summary>
+            Defines entity/model mapping for persisted grants.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.PersistedGrantMapperProfile.#ctor">
+            <summary>
+            <see cref="T:Ids4AdminApi.Mappers.PersistedGrantMapperProfile">
+            </see>
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Mappers.PersistedGrantMappers">
+            <summary>
+            Extension methods to map to/from entity/model for persisted grants.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.PersistedGrantMappers.ToModel(IdentityServer4.EntityFramework.Entities.PersistedGrant)">
+            <summary>
+            Maps an entity to a model.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.PersistedGrantMappers.ToModels(System.Collections.Generic.IEnumerable{IdentityServer4.EntityFramework.Entities.PersistedGrant})">
+            <summary>
+            Maps an entities to a models.
+            </summary>
+            <param name="entities">The entities.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.PersistedGrantMappers.ToEntity(Ids4AdminApi.Models.PersistedGrant)">
+            <summary>
+            Maps a model to an entity.
+            </summary>
+            <param name="model">The model.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ids4AdminApi.Mappers.PersistedGrantMappers.UpdateEntity(Ids4AdminApi.Models.PersistedGrant,IdentityServer4.EntityFramework.Entities.PersistedGrant)">
+            <summary>
+            Updates an entity from a model.
+            </summary>
+            <param name="model">The model.</param>
+            <param name="entity">The entity.</param>
+        </member>
+        <member name="T:Ids4AdminApi.Models.CultureName">
+            <summary>
+            Specifies the name of culture.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.CultureName.en_US">
+            <summary>
+            US English.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.CultureName.zh_Hans">
+            <summary>
+            Simplified Chinese.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.CultureName.zh_Hant">
+            <summary>
+            Traditional Chinese.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ApiResource">
+            <summary>
+            Models a web API resource.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ApiResource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.ApiResource"/> class.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ApiResource.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.ApiResource"/> class.
+            </summary>
+            <param name="name">The name.</param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ApiResource.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.ApiResource"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ApiResource.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.ApiResource"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="userClaims">List of associated user claims that should be included when this resource is requested.</param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ApiResource.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.ApiResource"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+            <param name="userClaims">List of associated user claims that should be included when this resource is requested.</param>
+            <exception cref="T:System.ArgumentNullException">name</exception>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResource.ApiSecrets">
+            <summary>
+            The API secret is used for the introspection endpoint. The API can authenticate with introspection using the API name and secret.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResource.Scopes">
+            <summary>
+            Models the scopes this API resource allows.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResource.AllowedAccessTokenSigningAlgorithms">
+            <summary>
+            Signing algorithm for access token. If empty, will use the server default signing algorithm.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResource.Created">
+            <summary>
+            Gets or sets the create time.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResource.Updated">
+            <summary>
+            Gets or sets the update time.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResource.LastAccessed">
+            <summary>
+            Gets or sets the create time.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ApiScope">
+            <summary>
+            Models access to an API scope
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ApiScope.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.ApiScope"/> class.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ApiScope.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.ApiScope"/> class.
+            </summary>
+            <param name="name">The name.</param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ApiScope.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.ApiScope"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ApiScope.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.ApiScope"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="userClaims">List of associated user claims that should be included when this resource is requested.</param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ApiScope.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.ApiScope"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+            <param name="userClaims">List of associated user claims that should be included when this resource is requested.</param>
+            <exception cref="T:System.ArgumentNullException">name</exception>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiScope.Required">
+            <summary>
+            Specifies whether the user can de-select the scope on the consent screen. Defaults to false.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiScope.Emphasize">
+            <summary>
+            Specifies whether the consent screen will emphasize this scope. Use this setting for sensitive or important scopes. Defaults to false.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.Client">
+            <summary>
+            Models an OpenID Connect or OAuth2 client
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.Id">
+            <summary>
+            Unique ID of data row.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.Enabled">
+            <summary>
+            Specifies if client is enabled (defaults to <c>true</c>)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.ClientId">
+            <summary>
+            Unique ID of the client
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.ProtocolType">
+            <summary>
+            Gets or sets the protocol type.
+            </summary>
+            <value>
+            The protocol type.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.ClientSecrets">
+            <summary>
+            Client secrets - only relevant for flows that require a secret
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.RequireClientSecret">
+            <summary>
+            If set to false, no client secret is needed to request tokens at the token endpoint (defaults to <c>true</c>)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.ClientName">
+            <summary>
+            Client display name (used for logging and consent screen)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.Description">
+            <summary>
+            Description of the client.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.ClientUri">
+            <summary>
+            URI to further information about client (used on consent screen)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.LogoUri">
+            <summary>
+            URI to client logo (used on consent screen)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.RequireConsent">
+            <summary>
+            Specifies whether a consent screen is required (defaults to <c>false</c>)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AllowRememberConsent">
+            <summary>
+            Specifies whether user can choose to store consent decisions (defaults to <c>true</c>)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AllowedGrantTypes">
+            <summary>
+            Specifies the allowed grant types (legal combinations of AuthorizationCode, Implicit, Hybrid, ResourceOwner, ClientCredentials).
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.RequirePkce">
+            <summary>
+            Specifies whether a proof key is required for authorization code based token requests (defaults to <c>true</c>).
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AllowPlainTextPkce">
+            <summary>
+            Specifies whether a proof key can be sent using plain method (not recommended and defaults to <c>false</c>.)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.RequireRequestObject">
+            <summary>
+            Specifies whether the client must use a request object on authorize requests (defaults to <c>false</c>.)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AllowAccessTokensViaBrowser">
+            <summary>
+            Controls whether access tokens are transmitted via the browser for this client (defaults to <c>false</c>).
+            This can prevent accidental leakage of access tokens when multiple response types are allowed.
+            </summary>
+            <value>
+            <c>true</c> if access tokens can be transmitted via the browser; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.RedirectUris">
+            <summary>
+            Specifies allowed URIs to return tokens or authorization codes to
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.PostLogoutRedirectUris">
+            <summary>
+            Specifies allowed URIs to redirect to after logout
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.FrontChannelLogoutUri">
+            <summary>
+            Specifies logout URI at client for HTTP front-channel based logout.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.FrontChannelLogoutSessionRequired">
+            <summary>
+            Specifies if the user's session id should be sent to the FrontChannelLogoutUri. Defaults to <c>true</c>.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.BackChannelLogoutUri">
+            <summary>
+            Specifies logout URI at client for HTTP back-channel based logout.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.BackChannelLogoutSessionRequired">
+            <summary>
+            Specifies if the user's session id should be sent to the BackChannelLogoutUri. Defaults to <c>true</c>.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AllowOfflineAccess">
+            <summary>
+            Gets or sets a value indicating whether [allow offline access]. Defaults to <c>false</c>.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AllowedScopes">
+            <summary>
+            Specifies the api scopes that the client is allowed to request. If empty, the client can't access any scope
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AlwaysIncludeUserClaimsInIdToken">
+            <summary>
+            When requesting both an id token and access token, should the user claims always be added to the id token instead of requiring the client to use the userinfo endpoint.
+            Defaults to <c>false</c>.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.IdentityTokenLifetime">
+            <summary>
+            Lifetime of identity token in seconds (defaults to 300 seconds / 5 minutes)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AllowedIdentityTokenSigningAlgorithms">
+            <summary>
+            Signing algorithm for identity token. If empty, will use the server default signing algorithm.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AccessTokenLifetime">
+            <summary>
+            Lifetime of access token in seconds (defaults to 3600 seconds / 1 hour)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AuthorizationCodeLifetime">
+            <summary>
+            Lifetime of authorization code in seconds (defaults to 300 seconds / 5 minutes)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AbsoluteRefreshTokenLifetime">
+            <summary>
+            Maximum lifetime of a refresh token in seconds. Defaults to 2592000 seconds / 30 days
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.SlidingRefreshTokenLifetime">
+            <summary>
+            Sliding lifetime of a refresh token in seconds. Defaults to 1296000 seconds / 15 days
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.ConsentLifetime">
+            <summary>
+            Lifetime of a user consent in seconds. Defaults to null (no expiration)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.RefreshTokenUsage">
+            <summary>
+            ReUse: the refresh token handle will stay the same when refreshing tokens
+            OneTime: the refresh token handle will be updated when refreshing tokens
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.UpdateAccessTokenClaimsOnRefresh">
+            <summary>
+            Gets or sets a value indicating whether the access token (and its claims) should be updated on a refresh token request.
+            Defaults to <c>false</c>.
+            </summary>
+            <value>
+            <c>true</c> if the token should be updated; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.RefreshTokenExpiration">
+            <summary>
+            Absolute: the refresh token will expire on a fixed point in time (specified by the AbsoluteRefreshTokenLifetime)
+            Sliding: when refreshing the token, the lifetime of the refresh token will be renewed (by the amount specified in SlidingRefreshTokenLifetime). The lifetime will not exceed AbsoluteRefreshTokenLifetime.
+            </summary>        
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AccessTokenType">
+            <summary>
+            Specifies whether the access token is a reference token or a self contained JWT token (defaults to Jwt).
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.EnableLocalLogin">
+            <summary>
+            Gets or sets a value indicating whether the local login is allowed for this client. Defaults to <c>true</c>.
+            </summary>
+            <value>
+              <c>true</c> if local logins are enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.IdentityProviderRestrictions">
+            <summary>
+            Specifies which external IdPs can be used with this client (if list is empty all IdPs are allowed). Defaults to empty.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.IncludeJwtId">
+            <summary>
+            Gets or sets a value indicating whether JWT access tokens should include an identifier. Defaults to <c>true</c>.
+            </summary>
+            <value>
+            <c>true</c> to add an id; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.Claims">
+            <summary>
+            Allows settings claims for the client (will be included in the access token).
+            </summary>
+            <value>
+            The claims.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AlwaysSendClientClaims">
+            <summary>
+            Gets or sets a value indicating whether client claims should be always included in the access tokens - or only for client credentials flow.
+            Defaults to <c>false</c>
+            </summary>
+            <value>
+            <c>true</c> if claims should always be sent; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.ClientClaimsPrefix">
+            <summary>
+            Gets or sets a value to prefix it on client claim types. Defaults to <c>client_</c>.
+            </summary>
+            <value>
+            Any non empty string if claims should be prefixed with the value; otherwise, <c>null</c>.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.PairWiseSubjectSalt">
+            <summary>
+            Gets or sets a salt value used in pair-wise subjectId generation for users of this client.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.UserSsoLifetime">
+            <summary>
+            The maximum duration (in seconds) since the last time the user authenticated.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.UserCodeType">
+            <summary>
+            Gets or sets the type of the device flow user code.
+            </summary>
+            <value>
+            The type of the device flow user code.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.DeviceCodeLifetime">
+            <summary>
+            Gets or sets the device code lifetime.
+            </summary>
+            <value>
+            The device code lifetime.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.AllowedCorsOrigins">
+            <summary>
+            Gets or sets the allowed CORS origins for JavaScript clients.
+            </summary>
+            <value>
+            The allowed CORS origins.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.Properties">
+            <summary>
+            Gets or sets the custom properties for the client.
+            </summary>
+            <value>
+            The properties.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.Created">
+            <summary>
+            Gets or sets the create time.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.Updated">
+            <summary>
+            Gets or sets the update time.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Client.LastAccessed">
+            <summary>
+            Gets or sets the create time.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Client.ValidateGrantTypes(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Validates the grant types.
+            </summary>
+            <param name="grantTypes">The grant types.</param>
+            <exception cref="T:System.InvalidOperationException">
+            Grant types list is empty
+            or
+            Grant types cannot contain spaces
+            or
+            Grant types list contains duplicate values
+            </exception>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ClientClaim">
+            <summary>
+            A client claim
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientClaim.Id">
+            <summary>
+            Unique ID of data row.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientClaim.Type">
+            <summary>
+            The claim type
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientClaim.Value">
+            <summary>
+            The claim value
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientClaim.ValueType">
+            <summary>
+            The claim value type
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ClientClaim.#ctor">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ClientClaim.#ctor(System.String,System.String)">
+            <summary>
+            ctor
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ClientClaim.#ctor(System.String,System.String,System.String)">
+            <summary>
+            ctor
+            </summary>
+            <param name="type"></param>
+            <param name="value"></param>
+            <param name="valueType"></param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ClientClaim.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Ids4AdminApi.Models.ClientClaim.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ids4AdminApi.Models.DeviceFlowCode">
+            <summary>
+            Represents data needed for device flow.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCode.UserCode">
+            <summary>
+            Gets or sets the user code.
+            </summary>
+            <value>
+            The user code.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCode.DeviceCode">
+            <summary>
+            Gets or sets the device code.
+            </summary>
+            <value>
+            The device code.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCode.SubjectId">
+            <summary>
+            Gets or sets the subject identifier.
+            </summary>
+            <value>
+            The subject identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCode.SessionId">
+            <summary>
+            Gets or sets the session identifier.
+            </summary>
+            <value>
+            The session identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCode.ClientId">
+            <summary>
+            Gets or sets the client identifier.
+            </summary>
+            <value>
+            The client identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCode.Description">
+            <summary>
+            Gets the description the user assigned to the device being authorized.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCode.CreationTime">
+            <summary>
+            Gets or sets the creation time.
+            </summary>
+            <value>
+            The creation time.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCode.Expiration">
+            <summary>
+            Gets or sets the expiration.
+            </summary>
+            <value>
+            The expiration.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCode.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="T:Ids4AdminApi.Models.SubjectTypes">
+            <summary>
+            OpenID Connect subject types.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.SubjectTypes.Global">
+            <summary>
+            global - use the native subject id
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.SubjectTypes.Ppid">
+            <summary>
+            ppid - scope the subject id to the client
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.AccessTokenType">
+            <summary>
+            Access token types.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.AccessTokenType.Jwt">
+            <summary>
+            Self-contained Json Web Token
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.AccessTokenType.Reference">
+            <summary>
+            Reference token
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.TokenUsage">
+            <summary>
+            Token usage types.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.TokenUsage.ReUse">
+            <summary>
+            Re-use the refresh token handle
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.TokenUsage.OneTimeOnly">
+            <summary>
+            Issue a new refresh token handle every time
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.TokenExpiration">
+            <summary>
+            Token expiration types.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.TokenExpiration.Sliding">
+            <summary>
+            Sliding token expiration
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.TokenExpiration.Absolute">
+            <summary>
+            Absolute token expiration
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.CspLevel">
+            <summary>
+            Content Security Policy Level
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.CspLevel.One">
+            <summary>
+            Level 1
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.CspLevel.Two">
+            <summary>
+            Level 2
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.IdentityResource">
+            <summary>
+            Models a user identity resource.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.IdentityResource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.IdentityResource"/> class.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.IdentityResource.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.IdentityResource"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="userClaims">List of associated user claims that should be included when this resource is requested.</param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.IdentityResource.#ctor(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.IdentityResource"/> class.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="displayName">The display name.</param>
+            <param name="userClaims">List of associated user claims that should be included when this resource is requested.</param>
+            <exception cref="T:System.ArgumentNullException">name</exception>
+            <exception cref="T:System.ArgumentException">Must provide at least one claim type - claimTypes</exception>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResource.Required">
+            <summary>
+            Specifies whether the user can de-select the scope on the consent screen (if the consent screen wants to implement such a feature). Defaults to false.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResource.Emphasize">
+            <summary>
+            Specifies whether the consent screen will emphasize this scope (if the consent screen wants to implement such a feature). 
+            Use this setting for sensitive or important scopes. Defaults to false.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResource.Created">
+            <summary>
+            Gets or sets the create time.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResource.Updated">
+            <summary>
+            Gets or sets the update time.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.PersistedGrant">
+            <summary>
+            A model for a persisted grant
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrant.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+            <value>
+            The key.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrant.Type">
+            <summary>
+            Gets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrant.SubjectId">
+            <summary>
+            Gets the subject identifier.
+            </summary>
+            <value>
+            The subject identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrant.SessionId">
+            <summary>
+            Gets the session identifier.
+            </summary>
+            <value>
+            The session identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrant.ClientId">
+            <summary>
+            Gets the client identifier.
+            </summary>
+            <value>
+            The client identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrant.Description">
+            <summary>
+            Gets the description the user assigned to the device being authorized.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrant.CreationTime">
+            <summary>
+            Gets or sets the creation time.
+            </summary>
+            <value>
+            The creation time.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrant.Expiration">
+            <summary>
+            Gets or sets the expiration.
+            </summary>
+            <value>
+            The expiration.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrant.ConsumedTime">
+            <summary>
+            Gets or sets the consumed time.
+            </summary>
+            <value>
+            The consumed time.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrant.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="T:Ids4AdminApi.Models.Property">
+            <summary>
+            Models a property.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Property.Id">
+            <summary>
+            Unique ID of data row.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Property.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Property.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Property.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Property.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Ids4AdminApi.Models.Resource">
+            <summary>
+            Models the common data of API and identity resources.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resource.Id">
+            <summary>
+            Unique ID of data row.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resource.Enabled">
+            <summary>
+            Indicates if this resource is enabled. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resource.Name">
+            <summary>
+            The unique name of the resource.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resource.DisplayName">
+            <summary>
+            Display name of the resource.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resource.Description">
+            <summary>
+            Description of the resource.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resource.ShowInDiscoveryDocument">
+            <summary>
+            Specifies whether this scope is shown in the discovery document. Defaults to true.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resource.UserClaims">
+            <summary>
+            List of associated user claims that should be included when this resource is requested.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resource.Properties">
+            <summary>
+            Gets or sets the custom properties for the resource.
+            </summary>
+            <value>
+            The properties.
+            </value>
+        </member>
+        <member name="T:Ids4AdminApi.Models.Resources">
+            <summary>
+            Models a collection of identity and API resources.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Resources.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.Resources"/> class.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Resources.#ctor(Ids4AdminApi.Models.Resources)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.Resources"/> class.
+            </summary>
+            <param name="other">The other.</param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Resources.#ctor(System.Collections.Generic.IEnumerable{Ids4AdminApi.Models.IdentityResource},System.Collections.Generic.IEnumerable{Ids4AdminApi.Models.ApiResource},System.Collections.Generic.IEnumerable{Ids4AdminApi.Models.ApiScope})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.Resources"/> class.
+            </summary>
+            <param name="identityResources">The identity resources.</param>
+            <param name="apiResources">The API resources.</param>
+            <param name="apiScopes">The API scopes.</param>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resources.OfflineAccess">
+            <summary>
+            Gets or sets a value indicating whether [offline access].
+            </summary>
+            <value>
+              <c>true</c> if [offline access]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resources.IdentityResources">
+            <summary>
+            Gets or sets the identity resources.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resources.ApiResources">
+            <summary>
+            Gets or sets the API resources.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Resources.ApiScopes">
+            <summary>
+            Gets or sets the API scopes.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.Secret">
+            <summary>
+            Models a client secret with identifier and expiration
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Secret.Id">
+            <summary>
+            Unique ID of data row.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Secret.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Secret.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Secret.Expiration">
+            <summary>
+            Gets or sets the expiration.
+            </summary>
+            <value>
+            The expiration.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Secret.Type">
+            <summary>
+            Gets or sets the type of the client secret.
+            </summary>
+            <value>
+            The type of the client secret.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Secret.Created">
+            <summary>
+            Gets or sets the create time.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Secret.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.Secret"/> class.
+            </summary>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Secret.#ctor(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.Secret"/> class.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="expiration">The expiration.</param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Secret.#ctor(System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Ids4AdminApi.Models.Secret" /> class.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="description">The description.</param>
+            <param name="expiration">The expiration.</param>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Secret.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Ids4AdminApi.Models.Secret.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ApiResourceListInput">
+            <summary>
+            Models a web API resource list input parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceListInput.Enabled">
+            <summary>
+            Specifies if API resource is enabled.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceListInput.Name">
+            <summary>
+            Unique name of the API resource.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceListInput.DisplayName">
+            <summary>
+            Display name of the API resource.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceListInput.Description">
+            <summary>
+            Description of the API resource.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceListInput.CreatedBegin">
+            <summary>
+            Gets or sets the create time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceListInput.CreatedEnd">
+            <summary>
+            Gets or sets the create time end. (&lt;)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceListInput.UpdatedBegin">
+            <summary>
+            Gets or sets the update time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceListInput.UpdatedEnd">
+            <summary>
+            Gets or sets the update time end. (&lt;)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceListInput.LastAccessedBegin">
+            <summary>
+            Gets or sets the last access time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceListInput.LastAccessedEnd">
+            <summary>
+            Gets or sets the last access time end. (&lt;)
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ApiResourceViewOutput">
+            <summary>
+            Models a web API resource view output result.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiResourceViewOutput.AllScopes">
+            <summary>
+            Gets or sets the all available scopes.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ApiScopeListInput">
+            <summary>
+            Models access to an API scope list input parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiScopeListInput.Enabled">
+            <summary>
+            Specifies if API scope is enabled.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiScopeListInput.Name">
+            <summary>
+            Unique name of the API scope.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiScopeListInput.DisplayName">
+            <summary>
+            Display name of the API scope.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ApiScopeListInput.Description">
+            <summary>
+            Description of the API scope.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ClientListInput">
+            <summary>
+            Models an OpenID Connect or OAuth2 client list input parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientListInput.Enabled">
+            <summary>
+            Specifies if client is enabled.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientListInput.ClientId">
+            <summary>
+            Unique ID of the client.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientListInput.ClientName">
+            <summary>
+            Client display name (used for logging and consent screen).
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientListInput.Description">
+            <summary>
+            Description of the client.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientListInput.CreatedBegin">
+            <summary>
+            Gets or sets the create time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientListInput.CreatedEnd">
+            <summary>
+            Gets or sets the create time end. (&lt;)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientListInput.UpdatedBegin">
+            <summary>
+            Gets or sets the update time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientListInput.UpdatedEnd">
+            <summary>
+            Gets or sets the update time end. (&lt;)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientListInput.LastAccessedBegin">
+            <summary>
+            Gets or sets the last access time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientListInput.LastAccessedEnd">
+            <summary>
+            Gets or sets the last access time end. (&lt;)
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ClientViewOutput">
+            <summary>
+            Models an OpenID Connect or OAuth2 client view output result.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ClientViewOutput.AllScopes">
+            <summary>
+            Gets or sets the all available scopes.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.DeviceFlowCodeListInput">
+            <summary>
+            Represents data needed for device flow list input parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.UserCode">
+            <summary>
+            Gets or sets the user code.
+            </summary>
+            <value>
+            The user code.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.DeviceCode">
+            <summary>
+            Gets or sets the device code.
+            </summary>
+            <value>
+            The device code.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.SubjectId">
+            <summary>
+            Gets or sets the subject identifier.
+            </summary>
+            <value>
+            The subject identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.SessionId">
+            <summary>
+            Gets or sets the session identifier.
+            </summary>
+            <value>
+            The session identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.ClientId">
+            <summary>
+            Gets or sets the client identifier.
+            </summary>
+            <value>
+            The client identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.Description">
+            <summary>
+            Gets the description the user assigned to the device being authorized.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.CreationTimeBegin">
+            <summary>
+            Gets or sets the creation time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.CreationTimeEnd">
+            <summary>
+            Gets or sets the creation time end. (&lt;)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.ExpirationBegin">
+            <summary>
+            Gets or sets the expiration time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.ExpirationEnd">
+            <summary>
+            Gets or sets the expiration time end. (&lt;)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.DeviceFlowCodeListInput.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="T:Ids4AdminApi.Models.IdentityResourceListInput">
+            <summary>
+            Models a user identity resource list input parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResourceListInput.Enabled">
+            <summary>
+            Specifies if identity resource is enabled.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResourceListInput.Name">
+            <summary>
+            Unique name of the identity resource.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResourceListInput.DisplayName">
+            <summary>
+            Display name of the identity resource.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResourceListInput.Description">
+            <summary>
+            Description of the identity resource.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResourceListInput.CreatedBegin">
+            <summary>
+            Gets or sets the create time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResourceListInput.CreatedEnd">
+            <summary>
+            Gets or sets the create time end. (&lt;)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResourceListInput.UpdatedBegin">
+            <summary>
+            Gets or sets the update time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.IdentityResourceListInput.UpdatedEnd">
+            <summary>
+            Gets or sets the update time end. (&lt;)
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.InsertUpdateInput`1">
+            <summary>
+            Models a T type insert update input parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.InsertUpdateInput`1.Data">
+            <summary>
+            Gets or sets the input data.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.PagingListInput`1">
+            <summary>
+            Models a paging list input parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PagingListInput`1.PageNo">
+            <summary>
+            Gets or sets the page number.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PagingListInput`1.PageSize">
+            <summary>
+            Gets or sets the page size.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PagingListInput`1.Condition">
+            <summary>
+            Gets or sets the search condition.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.PagingListOutput`1">
+            <summary>
+            Models a paging list output parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PagingListOutput`1.PageNo">
+            <summary>
+            Gets or sets the page number.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PagingListOutput`1.PageSize">
+            <summary>
+            Gets or sets the page size.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PagingListOutput`1.TotalCount">
+            <summary>
+            Gets or sets the total record count.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PagingListOutput`1.DataList">
+            <summary>
+            Gets or sets the data list.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.PersistedGrantListInput">
+            <summary>
+            A model for a persisted grant list input parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+            <value>
+            The key.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.Type">
+            <summary>
+            Gets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.SubjectId">
+            <summary>
+            Gets the subject identifier.
+            </summary>
+            <value>
+            The subject identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.SessionId">
+            <summary>
+            Gets the session identifier.
+            </summary>
+            <value>
+            The session identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.ClientId">
+            <summary>
+            Gets the client identifier.
+            </summary>
+            <value>
+            The client identifier.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.Description">
+            <summary>
+            Gets the description the user assigned to the device being authorized.
+            </summary>
+            <value>
+            The description.
+            </value>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.CreationTimeBegin">
+            <summary>
+            Gets or sets the creation time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.CreationTimeEnd">
+            <summary>
+            Gets or sets the creation time end. (&lt;)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.ExpirationBegin">
+            <summary>
+            Gets or sets the expiration time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.ExpirationEnd">
+            <summary>
+            Gets or sets the expiration time end. (&lt;)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.ConsumedTimeBegin">
+            <summary>
+            Gets or sets the consumed time begin. (>=)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.ConsumedTimeEnd">
+            <summary>
+            Gets or sets the consumed time end. (&lt;)
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.PersistedGrantListInput.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="T:Ids4AdminApi.Models.UniqueIdInput">
+            <summary>
+            Models a unique ID input parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.UniqueIdInput.Id">
+            <summary>
+            Unique ID of data row.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.UniqueKeyInput">
+            <summary>
+            Models a unique key input parameters.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.UniqueKeyInput.Key">
+            <summary>
+            Unique key of data row.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ViewOutput`1">
+            <summary>
+            Models a T type view output result.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ViewOutput`1.Data">
+            <summary>
+            Gets or sets the output data.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.Request">
+            <summary>
+            Represents a API request object.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Request.Header">
+            <summary>
+            Gets or sets the API request header.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.Request`1">
+            <summary>
+            Represents a API request object with generic type.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Request`1.Header">
+            <summary>
+            Gets or sets the API request header.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Request`1.Body">
+            <summary>
+            Gets or sets the API request body.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.RequestHeader">
+            <summary>
+            Represents a API request header.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.RequestHeader.Version">
+            <summary>
+             Gets or sets the version of API request.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.RequestHeader.RequestId">
+            <summary>
+            Gets or sets the unique identifier of API request.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.RequestHeader.Culture">
+            <summary>
+            Gets or sets the culture name of API request.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.Response">
+            <summary>
+            Represents a API response object.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Response.Header">
+            <summary>
+            Gets or sets the API response header.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.Response`1">
+            <summary>
+            Represents a API response object with generic type.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Response`1.Header">
+            <summary>
+            Gets or sets the API response header.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.Response`1.Body">
+            <summary>
+            Gets or sets the API response body.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ResponseError">
+            <summary>
+            Represents a API response error.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ResponseError.Code">
+            <summary>
+            Gets or sets the error code of API response.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ResponseError.Message">
+            <summary>
+            Gets or sets the error message of API response.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ResponseError.Params">
+            <summary>
+            Gets or sets the parameter list of API response. It is used for format the error message.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ResponseHeader">
+            <summary>
+            Represents a API response header.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ResponseHeader.Version">
+            <summary>
+            Gets or sets the version of API reponse. Match with the version of API request.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ResponseHeader.ResponseId">
+            <summary>
+            Gets or sets the unique identifier of API reponse. Match with the unique identifier of API request.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ResponseHeader.IsSuccess">
+            <summary>
+            Gets or sets the result of API response.
+            </summary>
+        </member>
+        <member name="P:Ids4AdminApi.Models.ResponseHeader.Errors">
+            <summary>
+            Gets or sets the error list of API response.
+            </summary>
+        </member>
+        <member name="T:Ids4AdminApi.Models.ResultCode">
+            <summary>
+             Defines result code for the API response.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.SystemError">
+            <summary>
+            System error
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.ParameterInvalid">
+            <summary>
+            Parameter validation fail.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.DbError">
+            <summary>
+            Data base error.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.ClientExist">
+            <summary>
+            Client is existed in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.ClientNotExist">
+            <summary>
+            Client is not exist in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.ApiScopeExist">
+            <summary>
+            API scope is existed in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.ApiScopeNotExist">
+            <summary>
+            API scope is not exist in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.ApiResourceExist">
+            <summary>
+            API resource is existed in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.ApiResourceNotExist">
+            <summary>
+            API resource is not exist in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.IdentityResourceExist">
+            <summary>
+            Identity resource is existed in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.IdentityResourceNotExist">
+            <summary>
+            Identity resource is not exist in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.DeviceFlowCodeExist">
+            <summary>
+            Device flow code is existed in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.DeviceFlowCodeNotExist">
+            <summary>
+            Device flow code is not exist in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.PersistedGrantExist">
+            <summary>
+            Persisted grant is existed in database.
+            </summary>
+        </member>
+        <member name="F:Ids4AdminApi.Models.ResultCode.PersistedGrantNotExist">
+            <summary>
+            Persisted grant is not exist in database.
+            </summary>
+        </member>
+    </members>
+</doc>
