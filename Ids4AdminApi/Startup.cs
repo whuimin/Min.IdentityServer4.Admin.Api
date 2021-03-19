@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Text.Unicode;
 using System.Net.Mime;
 using System.Reflection;
 
@@ -190,12 +189,11 @@ namespace Ids4AdminApi
 								}
 							}
 						};
-						var jsonSerializerOptions1 = new JsonSerializerOptions()
+						var result = JsonSerializer.Serialize(response, new JsonSerializerOptions()
 						{
 							PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-							Encoder = JavaScriptEncoder.Create(new TextEncoderSettings(UnicodeRanges.All))
-						};
-						var result = JsonSerializer.Serialize(response, jsonSerializerOptions1);
+							Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+						});
 
 						httpContext.Response.ContentType = "application/json; charset=utf-8";
 						await httpContext.Response.WriteAsync(result);
@@ -210,16 +208,15 @@ namespace Ids4AdminApi
 				{
 					httpContext.Response.ContentType = MediaTypeNames.Application.Json;
 
-					var jsonSerializerOptions = new JsonSerializerOptions()
-					{
-						PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-						Encoder = JavaScriptEncoder.Create(new TextEncoderSettings(UnicodeRanges.All))
-					};
 					var result = JsonSerializer.Serialize(new
 					{
 						Status = healthReport.Status.ToString(),
 						Errors = healthReport.Entries.Select(e => new { e.Key, Value = Enum.GetName(typeof(HealthStatus), e.Value.Status) })
-					}, jsonSerializerOptions);
+					}, new JsonSerializerOptions()
+					{
+						PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+						Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+					});
 
 					httpContext.Response.ContentType = "application/json; charset=utf-8";
 					await httpContext.Response.WriteAsync(result);
