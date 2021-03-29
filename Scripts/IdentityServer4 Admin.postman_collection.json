@@ -1,0 +1,1193 @@
+{
+	"info": {
+		"_postman_id": "c67cea4e-c6f9-4231-afc9-3e98a71a4066",
+		"name": "IdentityServer4 Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/Account/Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var regex = /<input name=\\\"__RequestVerificationToken\\\" type=\\\"hidden\\\" value=\\\"(.+?)\\\" \\/>/g;\r",
+							"var matches = regex.exec(pm.response.text());\r",
+							"if(matches)\r",
+							"{\r",
+							"    pm.environment.set(\"__RequestVerificationToken\", matches[1]);\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5003/Account/Login?ReturnUrl=%2Fdiagnostics",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5003",
+					"path": [
+						"Account",
+						"Login"
+					],
+					"query": [
+						{
+							"key": "ReturnUrl",
+							"value": "%2Fdiagnostics"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/Account/Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "ReturnUrl",
+							"value": "/diagnostics",
+							"type": "text"
+						},
+						{
+							"key": "Username",
+							"value": "bob",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "bob",
+							"type": "text"
+						},
+						{
+							"key": "button",
+							"value": "login",
+							"type": "text"
+						},
+						{
+							"key": "RememberLogin",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "__RequestVerificationToken",
+							"value": "{{__RequestVerificationToken}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5003/Account/Login?ReturnUrl=%2Fdiagnostics",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5003",
+					"path": [
+						"Account",
+						"Login"
+					],
+					"query": [
+						{
+							"key": "ReturnUrl",
+							"value": "%2Fdiagnostics"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/connect/authorize",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var regex = /<input type='hidden' name='code' value='(.+?)' \\/>/g;\r",
+							"var matches = regex.exec(pm.response.text());\r",
+							"if(matches)\r",
+							"{\r",
+							"    pm.environment.set(\"code\", matches[1]);\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5003/connect/authorize?client_id=min.identity-server4.admin.vue&response_type=code&scope=openid offline_access min.identity-server4.admin.api.scope&state={{$guid}}&response_mode=form_post&redirect_uri=http%3A%2F%2Flocalhost%3A9000%2Foidc%2Fsignin&code_challenge=6l-TSvDjGUwliGK6Fy0cY4iNPh4Sd7RQ4MByh4k7CQA&code_challenge_method=S256",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5003",
+					"path": [
+						"connect",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "min.identity-server4.admin.vue"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "scope",
+							"value": "openid offline_access min.identity-server4.admin.api.scope"
+						},
+						{
+							"key": "state",
+							"value": "{{$guid}}"
+						},
+						{
+							"key": "response_mode",
+							"value": "form_post"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http%3A%2F%2Flocalhost%3A9000%2Foidc%2Fsignin"
+						},
+						{
+							"key": "code_challenge",
+							"value": "6l-TSvDjGUwliGK6Fy0cY4iNPh4Sd7RQ4MByh4k7CQA",
+							"description": "Base64Url.Encode(code_verifier)"
+						},
+						{
+							"key": "code_challenge_method",
+							"value": "S256"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/connect/token(code)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"if(!jsonData.error)\r",
+							"{\r",
+							"    pm.environment.set(\"id_token\", jsonData.id_token);\r",
+							"    pm.environment.set(\"access_token\", jsonData.access_token);\r",
+							"    pm.environment.set(\"refresh_token\", jsonData.refresh_token);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "min.identity-server4.admin.vue",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:9000/oidc/signin",
+							"type": "text"
+						},
+						{
+							"key": "code_verifier",
+							"value": "b40be49c70db4b7681d130171fa3356ab40be49c70db4b76",
+							"description": "lenght:44~128",
+							"type": "text"
+						},
+						{
+							"key": "code_challenge_method",
+							"value": "S256",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "{{code}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:5003/connect/token",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5003",
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/Client/List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"pageNo\": 1,\r\n    \"pageSize\": 10,\r\n    \"condition\": {\r\n        \"enabled\": null,\r\n        \"clientId\": \"\",\r\n        \"clientName\": \"\",\r\n        \"description\": \"\",\r\n        \"created\": null,\r\n        \"updated\": null,\r\n        \"lastAccessed\": null\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/Client/List",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"Client",
+						"List"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/Client/View",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"id\": 17\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/Client/View",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"Client",
+						"View"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/Client/Init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/Client/Init",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"Client",
+						"Init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/Client/Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"data\": {\r\n      \"id\": 0,\r\n      \"enabled\": true,\r\n      \"clientId\": \"NewClientId3\",\r\n      \"protocolType\": \"oidc\",\r\n      \"clientSecrets\": [\r\n        {\r\n          \"id\": 0,\r\n          \"description\": null,\r\n          \"value\": \"23a571f2\",\r\n          \"expiration\": null,\r\n          \"type\": \"SharedSecret\",\r\n          \"created\": \"2021-02-26T10:16:45.8085826Z\"\r\n        }\r\n      ],\r\n      \"requireClientSecret\": true,\r\n      \"clientName\": null,\r\n      \"description\": null,\r\n      \"clientUri\": null,\r\n      \"logoUri\": null,\r\n      \"requireConsent\": false,\r\n      \"allowRememberConsent\": true,\r\n      \"allowedGrantTypes\": [],\r\n      \"requirePkce\": true,\r\n      \"allowPlainTextPkce\": false,\r\n      \"requireRequestObject\": false,\r\n      \"allowAccessTokensViaBrowser\": false,\r\n      \"redirectUris\": [],\r\n      \"postLogoutRedirectUris\": [],\r\n      \"frontChannelLogoutUri\": null,\r\n      \"frontChannelLogoutSessionRequired\": true,\r\n      \"backChannelLogoutUri\": null,\r\n      \"backChannelLogoutSessionRequired\": true,\r\n      \"allowOfflineAccess\": false,\r\n      \"allowedScopes\": [],\r\n      \"alwaysIncludeUserClaimsInIdToken\": false,\r\n      \"identityTokenLifetime\": 300,\r\n      \"allowedIdentityTokenSigningAlgorithms\": [],\r\n      \"accessTokenLifetime\": 3600,\r\n      \"authorizationCodeLifetime\": 300,\r\n      \"absoluteRefreshTokenLifetime\": 2592000,\r\n      \"slidingRefreshTokenLifetime\": 1296000,\r\n      \"consentLifetime\": null,\r\n      \"refreshTokenUsage\": 1,\r\n      \"updateAccessTokenClaimsOnRefresh\": false,\r\n      \"refreshTokenExpiration\": 1,\r\n      \"accessTokenType\": 0,\r\n      \"enableLocalLogin\": true,\r\n      \"identityProviderRestrictions\": [],\r\n      \"includeJwtId\": true,\r\n      \"claims\": [],\r\n      \"alwaysSendClientClaims\": false,\r\n      \"clientClaimsPrefix\": \"client_\",\r\n      \"pairWiseSubjectSalt\": null,\r\n      \"userSsoLifetime\": null,\r\n      \"userCodeType\": null,\r\n      \"deviceCodeLifetime\": 300,\r\n      \"allowedCorsOrigins\": [],\r\n      \"properties\": [],\r\n      \"created\": \"2021-02-26T10:16:45.8081741Z\",\r\n      \"updated\": null,\r\n      \"lastAccessed\": null\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/Client/Insert",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"Client",
+						"Insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/Client/Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"data\": {\r\n      \"id\": 17,\r\n      \"enabled\": true,\r\n      \"clientId\": \"NewClientId1\",\r\n      \"protocolType\": \"oidc\",\r\n      \"clientSecrets\": [\r\n        {\r\n          \"id\": 14,\r\n          \"description\": \"test description\",\r\n          \"value\": \"abc\",\r\n          \"expiration\": null,\r\n          \"type\": \"SharedSecret\"\r\n        }\r\n      ],\r\n      \"requireClientSecret\": true,\r\n      \"clientName\": \"测试客户端>=3&&测试<=4\",\r\n      \"description\": null,\r\n      \"clientUri\": null,\r\n      \"logoUri\": null,\r\n      \"requireConsent\": false,\r\n      \"allowRememberConsent\": true,\r\n      \"allowedGrantTypes\": [\"client_credentials\", \"authorization_code\"],\r\n      \"requirePkce\": true,\r\n      \"allowPlainTextPkce\": false,\r\n      \"requireRequestObject\": false,\r\n      \"allowAccessTokensViaBrowser\": false,\r\n      \"redirectUris\": [],\r\n      \"postLogoutRedirectUris\": [],\r\n      \"frontChannelLogoutUri\": null,\r\n      \"frontChannelLogoutSessionRequired\": true,\r\n      \"backChannelLogoutUri\": null,\r\n      \"backChannelLogoutSessionRequired\": true,\r\n      \"allowOfflineAccess\": false,\r\n      \"allowedScopes\": [],\r\n      \"alwaysIncludeUserClaimsInIdToken\": false,\r\n      \"identityTokenLifetime\": 300,\r\n      \"allowedIdentityTokenSigningAlgorithms\": [],\r\n      \"accessTokenLifetime\": 3600,\r\n      \"authorizationCodeLifetime\": 300,\r\n      \"absoluteRefreshTokenLifetime\": 2592000,\r\n      \"slidingRefreshTokenLifetime\": 1296000,\r\n      \"consentLifetime\": null,\r\n      \"refreshTokenUsage\": 1,\r\n      \"updateAccessTokenClaimsOnRefresh\": false,\r\n      \"refreshTokenExpiration\": 1,\r\n      \"accessTokenType\": 0,\r\n      \"enableLocalLogin\": true,\r\n      \"identityProviderRestrictions\": [],\r\n      \"includeJwtId\": true,\r\n      \"claims\": [\r\n        {\r\n          \"id\": 2,\r\n          \"type\": \"c\",\r\n          \"value\": \"1\",\r\n          \"valueType\": \"string\"\r\n        }\r\n      ],\r\n      \"alwaysSendClientClaims\": false,\r\n      \"clientClaimsPrefix\": \"client_\",\r\n      \"pairWiseSubjectSalt\": null,\r\n      \"userSsoLifetime\": null,\r\n      \"userCodeType\": null,\r\n      \"deviceCodeLifetime\": 300,\r\n      \"allowedCorsOrigins\": [],\r\n      \"properties\": [],\r\n      \"created\": \"2021-02-26T10:16:45.8081741Z\",\r\n      \"updated\": null,\r\n      \"lastAccessed\": null\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/Client/Update",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"Client",
+						"Update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/Client/Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"id\": 16\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/Client/Delete",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"Client",
+						"Delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiScope/List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"pageNo\": 1,\r\n    \"pageSize\": 10,\r\n    \"condition\": {\r\n      \"enabled\": null,\r\n      \"name\": \"transaction\",\r\n      \"displayName\": \"\",\r\n      \"description\": \"\"\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiScope/List",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiScope",
+						"List"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiScope/View",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"id\": 10\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiScope/View",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiScope",
+						"View"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiScope/Init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiScope/Init",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiScope",
+						"Init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiScope/Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"data\": {\r\n        \"required\": false,\r\n        \"emphasize\": false,\r\n        \"id\": 0,\r\n        \"enabled\": true,\r\n        \"name\": \"testscope\",\r\n        \"displayName\": \"Test scope\",\r\n        \"description\": \"My test scope\",\r\n        \"showInDiscoveryDocument\": true,\r\n        \"userClaims\": [ \"testClaim\" ],\r\n        \"properties\": [\r\n            {\r\n                \"id\": 0,\r\n                \"key\": \"prop1\",\r\n                \"value\": \"a1\"\r\n            },\r\n            {\r\n                \"id\": 0,\r\n                \"key\": \"prop2\",\r\n                \"value\": \"a2\"\r\n            }\r\n        ]\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiScope/Insert",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiScope",
+						"Insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiScope/Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"data\": {\r\n        \"required\": false,\r\n        \"emphasize\": false,\r\n        \"id\": 10,\r\n        \"enabled\": true,\r\n        \"name\": \"testscope\",\r\n        \"displayName\": \"Test scope\",\r\n        \"description\": \"My test scope1\",\r\n        \"showInDiscoveryDocument\": false,\r\n        \"userClaims\": [ \"testClaim\" ],\r\n        \"properties\": [\r\n            {\r\n                \"id\": 11,\r\n                \"key\": \"prop1\",\r\n                \"value\": \"a1\"\r\n            },\r\n            {\r\n                \"id\": 12,\r\n                \"key\": \"prop2\",\r\n                \"value\": \"a2\"\r\n            }\r\n        ]\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiScope/Update",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiScope",
+						"Update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiScope/Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"id\": 7\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiScope/Delete",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiScope",
+						"Delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiResource/List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"pageNo\": 1,\r\n    \"pageSize\": 10,\r\n    \"condition\": {\r\n      \"enabled\": null,\r\n      \"name\": \"\",\r\n      \"displayName\": \"\",\r\n      \"description\": \"\",\r\n      \"created\": null,\r\n      \"updated\": null,\r\n      \"lastAccessed\": null\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiResource/List",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiResource",
+						"List"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiResource/View",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"id\": 1\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiResource/View",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiResource",
+						"View"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiResource/Init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiResource/Init",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiResource",
+						"Init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiResource/Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"data\": {\r\n      \"apiSecrets\": [\r\n        {\r\n          \"id\": 0,\r\n          \"description\": null,\r\n          \"value\": \"e38f22c0\",\r\n          \"expiration\": null,\r\n          \"type\": \"SharedSecret\",\r\n          \"created\": \"2021-03-11T08:13:08.7379026Z\"\r\n        }\r\n      ],\r\n      \"scopes\": [\r\n        \"resource3.scope1\"\r\n      ],\r\n      \"allowedAccessTokenSigningAlgorithms\": [],\r\n      \"created\": \"2021-03-11T08:13:08.7377685Z\",\r\n      \"updated\": null,\r\n      \"lastAccessed\": null,\r\n      \"id\": 0,\r\n      \"enabled\": true,\r\n      \"name\": \"Resource3\",\r\n      \"displayName\": \"Resource 3\",\r\n      \"description\": null,\r\n      \"showInDiscoveryDocument\": true,\r\n      \"userClaims\": [\r\n        \"abc\"\r\n      ],\r\n      \"properties\": [\r\n        {\r\n          \"key\": \"key1\",\r\n          \"value\": \"a1\"\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiResource/Insert",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiResource",
+						"Insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiResource/Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"data\": {\r\n      \"apiSecrets\": [\r\n        {\r\n          \"id\": 3,\r\n          \"description\": null,\r\n          \"value\": \"e38f22c0\",\r\n          \"expiration\": null,\r\n          \"type\": \"SharedSecret\",\r\n          \"created\": \"2021-03-11T08:13:08.7379026Z\"\r\n        }\r\n      ],\r\n      \"scopes\": [\r\n        \"resource3.scope1\"\r\n      ],\r\n      \"allowedAccessTokenSigningAlgorithms\": [],\r\n      \"created\": \"2021-03-11T08:13:08.7377685Z\",\r\n      \"updated\": null,\r\n      \"lastAccessed\": null,\r\n      \"id\": 3,\r\n      \"enabled\": true,\r\n      \"name\": \"Resource3\",\r\n      \"displayName\": \"Resource 3\",\r\n      \"description\": null,\r\n      \"showInDiscoveryDocument\": true,\r\n      \"userClaims\": [\r\n        \"abc\"\r\n      ],\r\n      \"properties\": [\r\n        {\r\n          \"key\": \"key1\",\r\n          \"value\": \"a1\"\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiResource/Update",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiResource",
+						"Update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/ApiResource/Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"id\": 7\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/ApiResource/Delete",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"ApiResource",
+						"Delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/IdentityResource/List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"pageNo\": 1,\r\n    \"pageSize\": 10,\r\n    \"condition\": {\r\n      \"enabled\": null,\r\n      \"name\": \"\",\r\n      \"displayName\": \"\",\r\n      \"description\": \"\",\r\n      \"created\": null,\r\n      \"updated\": null\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/IdentityResource/List",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"IdentityResource",
+						"List"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/IdentityResource/View",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"id\": 4\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/IdentityResource/View",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"IdentityResource",
+						"View"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/IdentityResource/Init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/IdentityResource/Init",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"IdentityResource",
+						"Init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/IdentityResource/Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"data\": {\r\n      \"required\": false,\r\n      \"emphasize\": false,\r\n      \"created\": \"2021-03-11T08:37:24.889082Z\",\r\n      \"updated\": null,\r\n      \"id\": 0,\r\n      \"enabled\": true,\r\n      \"name\": \"testidentity\",\r\n      \"displayName\": \"Test Identity\",\r\n      \"description\": \"My test identity\",\r\n      \"showInDiscoveryDocument\": true,\r\n      \"userClaims\": [\r\n        \"profile\",\r\n        \"sub\"\r\n      ],\r\n      \"properties\": [\r\n        {\r\n          \"key\": \"key1\",\r\n          \"value\": \"a1\"\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/IdentityResource/Insert",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"IdentityResource",
+						"Insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/IdentityResource/Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"data\": {\r\n      \"required\": false,\r\n      \"emphasize\": false,\r\n      \"created\": \"2021-03-11T08:37:24.889082Z\",\r\n      \"updated\": null,\r\n      \"id\": 5,\r\n      \"enabled\": true,\r\n      \"name\": \"testidentity1\",\r\n      \"displayName\": \"Test Identity\",\r\n      \"description\": \"My test identity\",\r\n      \"showInDiscoveryDocument\": true,\r\n      \"userClaims\": [\r\n        \"profile\",\r\n        \"sub\"\r\n      ],\r\n      \"properties\": [\r\n        {\r\n          \"key\": \"key1\",\r\n          \"value\": \"a1\"\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/IdentityResource/Update",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"IdentityResource",
+						"Update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/IdentityResource/Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"id\": 7\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/IdentityResource/Delete",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"IdentityResource",
+						"Delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/DeviceFlowCode/List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"pageNo\": 1,\r\n    \"pageSize\": 10,\r\n    \"condition\": {\r\n      \"userCode\": \"\",\r\n      \"deviceCode\": \"\",\r\n      \"subjectId\": \"\",\r\n      \"sessionId\": \"\",\r\n      \"clientId\": \"\",\r\n      \"description\": \"\",\r\n      \"creationTime\": [],\r\n      \"expiration\": [],\r\n      \"data\": \"\"\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/DeviceFlowCode/List",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"DeviceFlowCode",
+						"List"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/DeviceFlowCode/View",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"key\": \"abc\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/DeviceFlowCode/View",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"DeviceFlowCode",
+						"View"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/DeviceFlowCode/Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"key\": \"abc\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/DeviceFlowCode/Delete",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"DeviceFlowCode",
+						"Delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/PersistedGrant/List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"pageNo\": 1,\r\n    \"pageSize\": 10,\r\n    \"condition\": {\r\n      \"key\": \"\",\r\n      \"type\": \"\",\r\n      \"subjectId\": \"\",\r\n      \"sessionId\": \"\",\r\n      \"clientId\": \"\",\r\n      \"description\": \"\",\r\n      \"creationTime\": [],\r\n      \"expiration\": [],\r\n      \"consumedTime\": [],\r\n      \"data\": \"\"\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/PersistedGrant/List",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"PersistedGrant",
+						"List"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/PersistedGrant/View",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"key\": \"eXHA5HXxu5AerxmoaAmLjckAz/xjNCc0BLzRT3MjbEc=\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/PersistedGrant/View",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"PersistedGrant",
+						"View"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/PersistedGrant/Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"header\": {\r\n    \"version\": {{version}},\r\n    \"requestId\": \"{{$guid}}\",\r\n    \"culture\": \"{{culture}}\"\r\n  },\r\n  \"body\": {\r\n    \"key\": \"abc\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9001/api/PersistedGrant/Delete",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"PersistedGrant",
+						"Delete"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
