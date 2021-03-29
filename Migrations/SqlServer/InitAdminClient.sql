@@ -1,25 +1,38 @@
 ﻿DECLARE @Id int, @ClientId nvarchar(200), @AdminBaseUri nvarchar(1000), @Secret nvarchar(100), @RedirectUri1 nvarchar(2000), @RedirectUri2 nvarchar(2000)
-DECLARE @ApiScopeName nvarchar(1000), @ApiResourceId int, @ApiResourceName nvarchar(1000)
+DECLARE @IdentityResourceId int, @ApiScopeName nvarchar(1000), @ApiResourceId int, @ApiResourceName nvarchar(1000)
 SET @ClientId = 'min.identity-server4.admin.vue'
 SET @AdminBaseUri = 'http://localhost:9000'
 SET @ApiScopeName = 'min.identity-server4.admin.api.scope'
 SET @ApiResourceName = 'min.identity-server4.admin.api'
 
-IF EXISTS(SELECT Id FROM ApiScopes WHERE (Name = @ApiScopeName))
+IF EXISTS(SELECT Id FROM IdentityResources WHERE ([Name] = 'openid'))
 BEGIN
-	UPDATE ApiScopes SET Enabled = 1 WHERE (Name = @ApiScopeName)
+	SELECT @IdentityResourceId = Id FROM IdentityResources WHERE ([Name] = 'openid')
+END
+ELSE
+BEGIN
+	INSERT INTO IdentityResources
+					(Enabled, [Name], DisplayName, Description, Required, Emphasize, ShowInDiscoveryDocument, Created, Updated, 
+					NonEditable)
+	VALUES   (1, 'openid', 'Your user identifier', NULL, 1, 0, 1, GETDATE(), NULL, 0)
+	SELECT @IdentityResourceId = @@IDENTITY
+END
+
+IF EXISTS(SELECT Id FROM ApiScopes WHERE ([Name] = @ApiScopeName))
+BEGIN
+	UPDATE ApiScopes SET Enabled = 1 WHERE ([Name] = @ApiScopeName)
 END
 ELSE
 BEGIN
 	INSERT INTO ApiScopes
-					(Enabled, Name, DisplayName, Description, Required, Emphasize, ShowInDiscoveryDocument)
+					(Enabled, [Name], DisplayName, Description, Required, Emphasize, ShowInDiscoveryDocument)
 	VALUES   (1, @ApiScopeName, @ApiScopeName, NULL, 0, 0, 1)
 END
 
-IF EXISTS(SELECT Id FROM ApiResources WHERE (Name = @ApiResourceName))
+IF EXISTS(SELECT Id FROM ApiResources WHERE ([Name] = @ApiResourceName))
 BEGIN
-	UPDATE ApiResources SET Enabled = 1 WHERE (Name = @ApiResourceName)
-	SELECT @ApiResourceId = Id FROM ApiResources WHERE (Name = @ApiResourceName)
+	UPDATE ApiResources SET Enabled = 1 WHERE ([Name] = @ApiResourceName)
+	SELECT @ApiResourceId = Id FROM ApiResources WHERE ([Name] = @ApiResourceName)
 	IF NOT EXISTS(SELECT Id FROM ApiResourceScopes WHERE (Scope = @ApiScopeName))
 	BEGIN
 		INSERT INTO ApiResourceScopes (ApiResourceId, Scope)
@@ -29,7 +42,7 @@ END
 ELSE
 BEGIN
 	INSERT INTO ApiResources
-					(Enabled, Name, DisplayName, Description, AllowedAccessTokenSigningAlgorithms, ShowInDiscoveryDocument, 
+					(Enabled, [Name], DisplayName, Description, AllowedAccessTokenSigningAlgorithms, ShowInDiscoveryDocument, 
 					Created, Updated, LastAccessed, NonEditable)
 	VALUES   (1, @ApiResourceName, @ApiResourceName, NULL, NULL, 1, GETDATE(), NULL, NULL, 0)
 	SET @ApiResourceId = @@IDENTITY
