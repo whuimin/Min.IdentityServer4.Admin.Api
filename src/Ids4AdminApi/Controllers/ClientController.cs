@@ -230,8 +230,10 @@ namespace Ids4AdminApi.Controllers
 				}
 			};
 
-			var client = new Client();
-			client.ClientId = "NewClientId";
+			var client = new Client
+			{
+				ClientId = "NewClientId"
+			};
 			client.ClientSecrets.Add(new Secret(Guid.NewGuid().ToString("N").Substring(0, 8)));
 
 			response.Body = new ClientViewOutput

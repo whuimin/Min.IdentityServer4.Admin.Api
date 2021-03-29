@@ -117,8 +117,7 @@ namespace Ids4AdminApi.Models
 		public override bool Equals(object obj)
 		{
 			if (obj == null) return false;
-			var other = obj as Secret;
-			if (other == null) return false;
+			if (obj is not Secret other) return false;
 			if (ReferenceEquals(other, this)) return true;
 
 			return String.Equals(other.Type, Type, StringComparison.Ordinal) &&

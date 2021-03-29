@@ -21,14 +21,12 @@ namespace Ids4AdminApi.Extensions
         {
             if (string.IsNullOrEmpty(input)) return string.Empty;
 
-            using (var sha = SHA256.Create())
-            {
-                var bytes = Encoding.UTF8.GetBytes(input);
-                var hash = sha.ComputeHash(bytes);
+			using var sha = SHA256.Create();
+			var bytes = Encoding.UTF8.GetBytes(input);
+			var hash = sha.ComputeHash(bytes);
 
-                return Convert.ToBase64String(hash);
-            }
-        }
+			return Convert.ToBase64String(hash);
+		}
 
         /// <summary>
         /// Creates a SHA256 hash of the specified input.
@@ -42,11 +40,9 @@ namespace Ids4AdminApi.Extensions
                 return null;
             }
 
-            using (var sha = SHA256.Create())
-            {
-                return sha.ComputeHash(input);
-            }
-        }
+			using var sha = SHA256.Create();
+			return sha.ComputeHash(input);
+		}
 
         /// <summary>
         /// Creates a SHA512 hash of the specified input.
@@ -57,13 +53,11 @@ namespace Ids4AdminApi.Extensions
         {
             if (string.IsNullOrEmpty(input)) return string.Empty;
 
-            using (var sha = SHA512.Create())
-            {
-                var bytes = Encoding.UTF8.GetBytes(input);
-                var hash = sha.ComputeHash(bytes);
+			using var sha = SHA512.Create();
+			var bytes = Encoding.UTF8.GetBytes(input);
+			var hash = sha.ComputeHash(bytes);
 
-                return Convert.ToBase64String(hash);
-            }
-        }
+			return Convert.ToBase64String(hash);
+		}
     }
 }

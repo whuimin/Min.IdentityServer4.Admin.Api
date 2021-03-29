@@ -68,15 +68,7 @@ namespace Ids4AdminApi.Models
 		/// <inheritdoc/>
 		public override int GetHashCode()
 		{
-			unchecked
-			{
-				int hash = 17;
-
-				hash = hash * 23 + Value.GetHashCode();
-				hash = hash * 23 + Type.GetHashCode();
-				hash = hash * 23 + ValueType.GetHashCode();
-				return hash;
-			}
+			return HashCode.Combine(Value, Type, ValueType);
 		}
 
 		/// <inheritdoc/>
